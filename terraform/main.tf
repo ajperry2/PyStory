@@ -13,6 +13,11 @@ provider "aws" {
   region = var.aws_region
 }
 
+import {
+  to = aws_s3_bucket.story_media
+  id = "arn:aws:s3:::pystory-media-bucket-unique-name"
+}
+
 # S3 bucket for storing images and videos
 resource "aws_s3_bucket" "story_media" {
   bucket = var.s3_bucket_name
@@ -87,6 +92,10 @@ resource "aws_dynamodb_table" "books" {
   }
 }
 
+import {
+  to = aws_iam_role.sagemaker_training_role
+  id = "arn:aws:iam::957923043297:role/pystory-sagemaker-training-role"
+}
 # IAM role for SageMaker training jobs
 resource "aws_iam_role" "sagemaker_training_role" {
   name = var.sagemaker_role_name
@@ -167,7 +176,10 @@ resource "aws_iam_role_policy_attachment" "sagemaker_full_access" {
   role       = aws_iam_role.sagemaker_training_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSageMakerFullAccess"
 }
-
+import {
+  to = aws_dynamodb_table.books
+  id = "arn:aws:dynamodb:us-east-1:957923043297:table/pystory-books"
+}
 # ECR repository for Docker images
 resource "aws_ecr_repository" "pystory" {
   name                 = var.ecr_repository_name
