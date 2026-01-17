@@ -1,0 +1,56 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# CI/CD
+.github
+
+# Documentation (excluding README.md which is needed for setup)
+*.md
+!README.md
+LICENSE
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info
+dist
+build
+.venv
+venv
+env
+.pytest_cache
+.coverage
+htmlcov
+.mypy_cache
+.ruff_cache
+
+# Tests
+tests
+.pytest_cache
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Terraform
+terraform
+*.tf
+*.tfvars
+.terraform
+
+# Development
+requirements-dev.txt
+.env
+.envrc
