@@ -177,8 +177,8 @@ resource "aws_iam_role_policy_attachment" "sagemaker_full_access" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonSageMakerFullAccess"
 }
 import {
-  to = aws_dynamodb_table.books
-  id = "arn:aws:dynamodb:us-east-1:957923043297:table/pystory-books"
+  to = aws_ecr_repository.pystory
+  id = "pystory"
 }
 # ECR repository for Docker images
 resource "aws_ecr_repository" "pystory" {
