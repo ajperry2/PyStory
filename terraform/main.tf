@@ -15,7 +15,7 @@ provider "aws" {
 
 import {
   to = aws_s3_bucket.story_media
-  id = "arn:aws:s3:::pystory-media-bucket-unique-name"
+  id = "pystory-media-bucket-unique-name"
 }
 
 # S3 bucket for storing images and videos
