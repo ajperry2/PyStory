@@ -119,6 +119,7 @@ For the CI/CD pipeline to work, configure the following secrets in your GitHub r
 
 - `AWS_ACCESS_KEY_ID`: AWS access key
 - `AWS_SECRET_ACCESS_KEY`: AWS secret key
+- `TF_VAR_S3_BUCKET_NAME`: Unique S3 bucket name for the PyStory media storage
 
 Navigate to: Repository Settings → Secrets and variables → Actions → New repository secret
 
@@ -203,9 +204,10 @@ The GitHub Actions workflow automatically:
 
 1. Triggers on pushes to `main` or `develop` branches
 2. Authenticates with AWS using GitHub secrets
-3. Builds the Docker image
-4. Pushes the image to Amazon ECR with appropriate tags
-5. Uses Docker layer caching for faster builds
+3. Applies Terraform infrastructure changes
+4. Builds the Docker image
+5. Pushes the image to Amazon ECR with appropriate tags
+6. Uses Docker layer caching for faster builds
 
 ### Image Tagging Strategy
 
