@@ -94,7 +94,7 @@ resource "aws_dynamodb_table" "books" {
 
 import {
   to = aws_iam_role.sagemaker_training_role
-  id = "arn:aws:iam::957923043297:role/pystory-sagemaker-training-role"
+  id = "pystory-sagemaker-training-role"
 }
 # IAM role for SageMaker training jobs
 resource "aws_iam_role" "sagemaker_training_role" {
