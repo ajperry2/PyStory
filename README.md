@@ -16,7 +16,6 @@ PyStory/
 │   ├── main.tf                       # Main Terraform configuration
 │   ├── variables.tf                  # Variable definitions
 │   ├── outputs.tf                    # Output definitions
-│   ├── auth.tf                       # Authentication configuration
 │   └── terraform.tfvars.example      # Example variables file
 ├── pystory/                          # Python package
 │   ├── __init__.py
@@ -51,13 +50,7 @@ The Terraform configuration provisions the following AWS resources:
 - Access to S3 bucket and DynamoDB table
 - Full SageMaker permissions
 
-### 4. Amazon Cognito for Authentication
-- User pool for user management
-- Google Identity Provider integration
-- OAuth 2.0 / OpenID Connect support
-- Identity pool for AWS resource access
-
-### 5. Amazon ECR Repository
+### 4. Amazon ECR Repository
 - Docker image registry
 - Automatic image scanning
 - Lifecycle policies for image management
@@ -90,20 +83,7 @@ terraform plan
 terraform apply
 ```
 
-### 2. Configure Google OAuth (Optional)
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select an existing one
-3. Enable the Google+ API
-4. Create OAuth 2.0 credentials
-5. Add the credentials to `terraform.tfvars`:
-   ```hcl
-   google_client_id     = "your-client-id"
-   google_client_secret = "your-client-secret"
-   ```
-6. Run `terraform apply` again to update
-
-### 3. Install Python Package
+### 2. Install Python Package
 
 ```bash
 # Install in development mode
@@ -113,7 +93,7 @@ pip install -e .
 pip install -e ".[dev]"
 ```
 
-### 4. Set Up GitHub Secrets
+### 3. Set Up GitHub Secrets
 
 For the CI/CD pipeline to work, configure the following secrets in your GitHub repository:
 
@@ -269,7 +249,6 @@ terraform output ecr_repository_url
 terraform output s3_bucket_name
 terraform output dynamodb_table_name
 terraform output sagemaker_role_arn
-terraform output cognito_user_pool_id
 ```
 
 ## Security Considerations

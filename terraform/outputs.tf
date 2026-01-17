@@ -37,28 +37,3 @@ output "ecr_repository_arn" {
   description = "ARN of the ECR repository"
   value       = aws_ecr_repository.pystory.arn
 }
-
-output "cognito_user_pool_id" {
-  description = "ID of the Cognito user pool"
-  value       = aws_cognito_user_pool.pystory.id
-}
-
-output "cognito_user_pool_arn" {
-  description = "ARN of the Cognito user pool"
-  value       = aws_cognito_user_pool.pystory.arn
-}
-
-output "cognito_client_id" {
-  description = "ID of the Cognito user pool client"
-  value       = aws_cognito_user_pool_client.pystory.id
-}
-
-output "cognito_domain" {
-  description = "Cognito domain for hosted UI"
-  value       = aws_cognito_user_pool_domain.pystory.domain
-}
-
-output "cognito_identity_pool_id" {
-  description = "ID of the Cognito identity pool"
-  value       = aws_cognito_identity_pool.pystory.id
-}

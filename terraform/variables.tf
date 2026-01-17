@@ -32,35 +32,3 @@ variable "ecr_repository_name" {
   type        = string
   default     = "pystory"
 }
-
-variable "google_client_id" {
-  description = "Google OAuth client ID for authentication"
-  type        = string
-  default     = ""
-  sensitive   = true
-}
-
-variable "google_client_secret" {
-  description = "Google OAuth client secret for authentication"
-  type        = string
-  default     = ""
-  sensitive   = true
-}
-
-variable "cognito_domain" {
-  description = "Domain prefix for Cognito hosted UI"
-  type        = string
-  default     = "pystory-auth"
-}
-
-variable "cognito_callback_urls" {
-  description = "Allowed callback URLs for Cognito"
-  type        = list(string)
-  default     = ["http://localhost:3000/callback", "https://localhost:3000/callback"]
-}
-
-variable "cognito_logout_urls" {
-  description = "Allowed logout URLs for Cognito"
-  type        = list(string)
-  default     = ["http://localhost:3000/", "https://localhost:3000/"]
-}

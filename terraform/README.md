@@ -7,9 +7,7 @@ This directory contains Terraform configuration for provisioning PyStory infrast
 1. **S3 Bucket** - For storing story images and videos
 2. **DynamoDB Table** - For storing book information
 3. **IAM Role** - For SageMaker training jobs with configurable hardware
-4. **Amazon Cognito** - User pool and identity pool for authentication
-5. **Google Identity Provider** - Integration with Google OAuth
-6. **ECR Repository** - For Docker images
+4. **ECR Repository** - For Docker images
 
 ## Prerequisites
 
@@ -31,10 +29,6 @@ This directory contains Terraform configuration for provisioning PyStory infrast
    s3_bucket_name      = "my-unique-pystory-bucket"
    dynamodb_table_name = "pystory-books"
    ecr_repository_name = "pystory"
-   
-   # Optional: Google OAuth
-   google_client_id     = "your-client-id.apps.googleusercontent.com"
-   google_client_secret = "your-client-secret"
    ```
 
 3. Initialize Terraform:
@@ -65,11 +59,6 @@ This directory contains Terraform configuration for provisioning PyStory infrast
 - `dynamodb_table_name` - DynamoDB table name (default: `pystory-books`)
 - `sagemaker_role_name` - IAM role name for SageMaker (default: `pystory-sagemaker-training-role`)
 - `ecr_repository_name` - ECR repository name (default: `pystory`)
-- `google_client_id` - Google OAuth client ID (optional)
-- `google_client_secret` - Google OAuth client secret (optional)
-- `cognito_domain` - Cognito domain prefix (default: `pystory-auth`)
-- `cognito_callback_urls` - Allowed callback URLs for OAuth
-- `cognito_logout_urls` - Allowed logout URLs
 
 ## Outputs
 
@@ -92,24 +81,6 @@ Available outputs:
 - `sagemaker_role_name` - Name of the SageMaker IAM role
 - `ecr_repository_url` - URL of the ECR repository
 - `ecr_repository_arn` - ARN of the ECR repository
-- `cognito_user_pool_id` - ID of the Cognito user pool
-- `cognito_client_id` - ID of the Cognito app client
-- `cognito_identity_pool_id` - ID of the Cognito identity pool
-
-## Google OAuth Setup
-
-To enable Google authentication:
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create or select a project
-3. Enable the Google+ API
-4. Navigate to "Credentials" → "Create Credentials" → "OAuth 2.0 Client ID"
-5. Configure the OAuth consent screen
-6. Add authorized redirect URIs:
-   - `https://<cognito-domain>.auth.<region>.amazoncognito.com/oauth2/idpresponse`
-7. Copy the Client ID and Client Secret
-8. Add them to your `terraform.tfvars` file
-9. Run `terraform apply`
 
 ## SageMaker Instance Types
 
