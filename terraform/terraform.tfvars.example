@@ -1,0 +1,15 @@
+# AWS Configuration
+aws_region  = "us-east-1"
+environment = "dev"
+
+# S3 Configuration
+s3_bucket_name = "pystory-media-bucket-unique-name"
+
+# DynamoDB Configuration
+dynamodb_table_name = "pystory-books"
+
+# SageMaker Configuration
+sagemaker_role_name = "pystory-sagemaker-training-role"
+
+# ECR Configuration
+ecr_repository_name = "pystory"
